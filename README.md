@@ -10,5 +10,5 @@ npm start
 
 ## Applications Screenshots
 <p align="center">
-  <img src="./screenshot/screenshot.png" alt="movie_search" width="800"></img>
+  <img src="./screenshot/screenshot.png" alt="movie_search" width="600"></img>
 </p>
