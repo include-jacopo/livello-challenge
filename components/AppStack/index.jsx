@@ -19,7 +19,11 @@ function AppStack() {
           options={{ title: 'Find Movies, TV shows and more...' }}
           component={Home}
         />
-        <Stack.Screen name='search' component={SearchPage} />
+        <Stack.Screen
+          name='search'
+          component={SearchPage}
+          options={({ route }) => ({ title: route.params.movie_name })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

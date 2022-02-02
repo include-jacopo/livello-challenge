@@ -5,3 +5,5 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 export const LOGIN_FAIL = 'LOGIN_FAIL'
 export const FETCH_GIGS = 'FETCH_GIGS'
 export const SET_NOTES = 'SET_NOTES'
+export const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
+
