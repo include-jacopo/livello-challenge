@@ -55,21 +55,23 @@ function SearchPage({ results }) {
 
 const styles = StyleSheet.create({
   main_cont: {
-    backgroundColor: '#fff',
+    backgroundColor: '#141a31',
   },
   container: {
     flex: 1,
     width: '100%',
-    backgroundColor: '#fff',
+    backgroundColor: '#141a31',
   },
   image_cont: {
     width: '100%',
     alignItems: 'center',
   },
   image: {
+    marginTop: 25,
+    marginBottom: 10,
     height: 245,
     padding: 10,
-    width: '95%',
+    width: '70%',
     borderRadius: 20,
   },
   main: {
@@ -83,11 +85,13 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: 20,
+    color: '#ffffff',
   },
   title1: {
     fontSize: 20,
     flex: 1,
     flexWrap: 'wrap',
+    color: '#ffffff',
   },
   info_item: {
     flexDirection: 'row',

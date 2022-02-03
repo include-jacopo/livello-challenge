@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Button, TextInput, TouchableOpacity } from 'react-native';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator, Image } from 'react-native';
 import { BASE_URL } from '../../utils';
 import { connect } from 'react-redux';
 import { setSearchResults } from '../../redux/ActionCreators';
+import logo from './img/livello_logo.png';
+import { marginTop } from 'styled-system';
 
 function Home({ navigation, setSearch, results }) {
   const [loading, setLoading] = useState(false);
@@ -20,10 +22,14 @@ function Home({ navigation, setSearch, results }) {
         if (data) {
           setSearch(data);
         }
+      } else {
+        setLoading(false);
+        setSearch(null);
       }
     } catch (error) {
       alert('Error fetching movie');
       setLoading(false);
+      return;
     }
   };
   return (
@@ -36,12 +42,16 @@ function Home({ navigation, setSearch, results }) {
         />
       </View>
       <View style={styles.list_cont}>
+
         {!results && searchText.length > 2 && (
-          <Text>No movie or show found.</Text>
+          <Text style ={{color:'white'}}>No movie or show found.</Text>
         )}
+
         {loading && <ActivityIndicator />}
 
-        {[results].map((item, i) => (
+        {results && [results].map((item, i) => (
+          <>
+          {!item.Title ? <></> : 
           <TouchableOpacity
             key={i}
             style={styles.list_item}
@@ -50,8 +60,11 @@ function Home({ navigation, setSearch, results }) {
             }
           >
             <Text>{item?.Title}</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> 
+          }
+          </>
         ))}
+        <Image source={logo} style={{ width: '30%', marginTop: 70 }} />
       </View>
     </View>
   );
@@ -61,7 +74,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    backgroundColor: '#fff',
+    backgroundColor: '#1e2746',
   },
   search_cont: {
     width: '100%',
@@ -74,17 +87,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 5,
     borderRadius: 10,
+    backgroundColor: '#ffffff',
   },
   list_cont: {
     flex: 1,
     alignItems: 'center',
     marginTop: 20,
   },
+
   list_item: {
     marginTop: 10,
     width: '90%',
     height: 50,
-    backgroundColor: '#eee',
+    backgroundColor: '#D7E1ED',
     alignItems: 'flex-start',
     justifyContent: 'center',
     borderRadius: 10,
